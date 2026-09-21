@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InnovFest 2026 - SMK Telkom Malang</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Tailwind Configuration for Moklet House Style -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            moklet: {
+              DEFAULT: '#E21E26',
+              50: '#FEF2F2',
+              100: '#FEE2E2',
+              200: '#FECACA',
+              300: '#FCA5A5',
+              400: '#F87171',
+              500: '#EF4444',
+              600: '#E21E26', // Warna Khas Moklet
+              700: '#B9141B',
+              800: '#991B1B',
+              900: '#7F1D1D',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+
+    /* Pulse animation for loading */
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .skeleton-loading {
+      background: linear-gradient(90deg, #F1F5F9 25%, #E2E8F0 50%, #F1F5F9 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-moklet-100 selection:text-moklet-700">
+
+  <!-- ==================== HEADER & NAVBAR ==================== -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo & Brand Title -->
+        <div class="flex items-center space-x-3.5">
+          <!-- Logo Resmi SMK Telkom Malang -->
+          <div class="w-12 h-12 rounded-xl bg-white p-1 border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 overflow-hidden hover:scale-105 transition-transform duration-200">
+            <img src="logo.png" alt="Logo SMK Telkom Malang" class="w-full h-full object-contain">
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-slate-900">
+                INNOV<span class="text-moklet">FEST</span>
+              </span>
+              <span class="bg-moklet-50 text-moklet border border-moklet-200 text-xs font-bold px-2 py-0.5 rounded-full">
+                2026
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 font-medium">
+              SMK Telkom Malang &bull; The Real Informatics School
+            </p>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs (Desktop & Mobile) -->
+        <nav class="flex items-center bg-slate-100 p-1.5 rounded-xl border border-slate-200/80">
+          <button 
+            id="tabBtnForm" 
+            onclick="switchTab('form')"
+            class="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-white bg-moklet shadow-sm shadow-moklet-600/20"
+          >
+            <i data-feather="edit-3" class="w-4 h-4"></i>
+            <span>Isi Form</span>
+          </button>
+          
+          <button 
+            id="tabBtnDashboard" 
+            onclick="switchTab('dashboard')"
+            class="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900 hover:bg-white/60"
+          >
+            <i data-feather="grid" class="w-4 h-4"></i>
+            <span>Dashboard Inovasi</span>
+          </button>
+        </nav>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT CONTAINER ==================== -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+
+    <!-- ======================================================== -->
+    <!-- VIEW 1: FORMULIR INPUT INOVASI                           -->
+    <!-- ======================================================== -->
+    <section id="viewForm" class="block max-w-2xl mx-auto transition-all duration-300">
+      
+      <!-- Intro Card Banner -->
+      <div class="mb-8 text-center">
+        <div class="inline-flex items-center justify-center p-2 bg-moklet-50 text-moklet rounded-full mb-3 border border-moklet-100">
+          <i data-feather="sparkles" class="w-5 h-5"></i>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          Formulir Pengajuan Inovasi
+        </h1>
+        <p class="text-sm sm:text-base text-slate-600 mt-2 max-w-md mx-auto">
+          Laporkan karya dan gagasan inovatif terbaik Anda untuk SMK Telkom Malang <strong >Juara Umum</strong> pada ajang bergengsi <strong>InnovFest 2026</strong>.
+        </p>
+      </div>
+
+      <!-- Form Card -->
+      <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-200/80 p-6 sm:p-10 relative overflow-hidden">
+        
+        <!-- Top Moklet Red Accent Line -->
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-moklet to-red-400"></div>
+
+        <!-- Alert Notification (Sukses / Error) -->
+        <div id="formAlert" class="hidden mb-6 p-4 rounded-xl text-sm font-medium border flex items-start space-x-3 transition-all">
+          <div id="alertIconContainer" class="flex-shrink-0 mt-0.5"></div>
+          <div class="flex-grow" id="alertMessage"></div>
+          <button onclick="dismissAlert()" class="text-slate-400 hover:text-slate-600">
+            <i data-feather="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <form id="innovationForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+          
+          <!-- Field: Nama Lengkap (Wajib) -->
+          <div>
+            <label for="namaLengkap" class="block text-sm font-bold text-slate-800 mb-1.5">
+              Nama Lengkap Ketua / Pengusul <span class="text-moklet">*</span>
+            </label>
+            <div class="relative rounded-xl shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <i data-feather="user" class="w-4 h-4"></i>
+              </div>
+              <input 
+                type="text" 
+                id="namaLengkap" 
+                name="namaLengkap" 
+                required 
+                placeholder="Contoh: Muhammad Chusni Moklet"
+                class="block w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors"
+              >
+            </div>
+          </div>
+
+          <!-- Field: Anggota 1 & Anggota 2 (Opsional) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="anggota1" class="block text-sm font-semibold text-slate-700 mb-1.5">
+                Anggota 1 <span class="text-xs text-slate-400 font-normal">(Opsional)</span>
+              </label>
+              <div class="relative rounded-xl shadow-sm">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                  <i data-feather="users" class="w-4 h-4"></i>
+                </div>
+                <input 
+                  type="text" 
+                  id="anggota1" 
+                  name="anggota1" 
+                  placeholder="Nama anggota 1"
+                  class="block w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors"
+                >
+              </div>
+            </div>
+
+            <div>
+              <label for="anggota2" class="block text-sm font-semibold text-slate-700 mb-1.5">
+                Anggota 2 <span class="text-xs text-slate-400 font-normal">(Opsional)</span>
+              </label>
+              <div class="relative rounded-xl shadow-sm">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                  <i data-feather="users" class="w-4 h-4"></i>
+                </div>
+                <input 
+                  type="text" 
+                  id="anggota2" 
+                  name="anggota2" 
+                  placeholder="Nama anggota 2"
+                  class="block w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors"
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Field: Judul Ide (Wajib) -->
+          <div>
+            <label for="judulIde" class="block text-sm font-bold text-slate-800 mb-1.5">
+              Judul Ide Inovasi <span class="text-moklet">*</span>
+            </label>
+            <div class="relative rounded-xl shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <i data-feather="lightbulb" class="w-4 h-4"></i>
+              </div>
+              <input 
+                type="text" 
+                id="judulIde" 
+                name="judulIde" 
+                required 
+                placeholder="Contoh: Sistem Presensi Siswa Berbasis AI & Face Recognition"
+                class="block w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors"
+              >
+            </div>
+          </div>
+
+          <!-- Field: Kategori Inovasi (Wajib) -->
+          <div>
+            <label for="kategoriInovasi" class="block text-sm font-bold text-slate-800 mb-1.5">
+              Kategori Inovasi <span class="text-moklet">*</span>
+            </label>
+            <div class="relative rounded-xl shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <i data-feather="tag" class="w-4 h-4"></i>
+              </div>
+              <select 
+                id="kategoriInovasi" 
+                name="kategoriInovasi" 
+                required 
+                class="block w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors appearance-none cursor-pointer"
+              >
+                <option value="" disabled selected>-- Pilih Kategori Inovasi --</option>
+                <option value="Idea">💡 Idea (Gagasan Konseptual)</option>
+                <option value="Prototype">🛠️ Prototype (Purwarupa / Demo Produk)</option>
+                <option value="Implementation">🚀 Implementation (Sudah Diterapkan / Siap Pakai)</option>
+              </select>
+              <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400">
+                <i data-feather="chevron-down" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-4">
+            <button 
+              type="submit" 
+              id="submitBtn"
+              class="w-full flex items-center justify-center space-x-2 py-3.5 px-6 rounded-xl text-white bg-moklet hover:bg-moklet-700 active:scale-[0.99] font-bold text-base shadow-lg shadow-moklet-600/30 transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              <span id="btnText" class="flex items-center space-x-2">
+                <i data-feather="send" class="w-4 h-4"></i>
+                <span>Kirim Inovasi Terdaftar</span>
+              </span>
+              <!-- Loading Spinner -->
+              <span id="btnSpinner" class="hidden items-center space-x-2">
+                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>Sedang Menyimpan...</span>
+              </span>
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- VIEW 2: DASHBOARD INOVASI                                -->
+    <!-- ======================================================== -->
+    <section id="viewDashboard" class="hidden transition-all duration-300">
+      
+      <!-- Top Title & Refresh Action -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2.5">
+            <span>Dashboard Inovasi</span>
+            <span id="totalBadge" class="bg-moklet-50 text-moklet border border-moklet-200 text-xs font-bold px-2.5 py-1 rounded-full">
+              0 Data
+            </span>
+          </h1>
+          <p class="text-sm text-slate-500 mt-1">
+            Daftar karya dan ide inovasi yang telah didaftarkan Xgracias.
+          </p>
+        </div>
+
+        <button 
+          onclick="fetchDashboardData()" 
+          id="refreshBtn"
+          class="inline-flex items-center justify-center space-x-2 px-4 py-2.5 bg-white border border-slate-300 hover:border-moklet hover:text-moklet text-slate-700 font-semibold text-sm rounded-xl shadow-sm transition-all hover:shadow cursor-pointer"
+          title="Segarkan Data"
+        >
+          <i data-feather="refresh-cw" id="refreshIcon" class="w-4 h-4"></i>
+          <span>Segarkan Data</span>
+        </button>
+      </div>
+
+      <!-- Quick KPI Stats Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+        
+        <!-- Stat: Idea -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex items-center space-x-4">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100 flex-shrink-0">
+            <i data-feather="lightbulb" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Kategori Idea</p>
+            <p id="statIdeaCount" class="text-2xl font-extrabold text-slate-900">0</p>
+          </div>
+        </div>
+
+        <!-- Stat: Prototype -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex items-center space-x-4">
+          <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100 flex-shrink-0">
+            <i data-feather="tool" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Kategori Prototype</p>
+            <p id="statProtoCount" class="text-2xl font-extrabold text-slate-900">0</p>
+          </div>
+        </div>
+
+        <!-- Stat: Implementation -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex items-center space-x-4">
+          <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 flex-shrink-0">
+            <i data-feather="check-circle" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Kategori Implementation</p>
+            <p id="statImplCount" class="text-2xl font-extrabold text-slate-900">0</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Filters & Search Toolbar -->
+      <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm mb-6 flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
+        <!-- Live Search -->
+        <div class="relative flex-grow max-w-md">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+            <i data-feather="search" class="w-4 h-4"></i>
+          </div>
+          <input 
+            type="text" 
+            id="searchInput" 
+            oninput="handleFilterChange()"
+            placeholder="Cari judul, nama ketua, atau anggota..." 
+            class="block w-full pl-10 pr-4 py-2 text-sm rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-all"
+          >
+        </div>
+
+        <!-- Category Filter -->
+        <div class="flex items-center space-x-3">
+          <label for="categoryFilter" class="text-xs font-bold text-slate-600 uppercase tracking-wider whitespace-nowrap">Filter Kategori:</label>
+          <select 
+            id="categoryFilter" 
+            onchange="handleFilterChange()"
+            class="py-2 pl-3 pr-8 text-sm rounded-xl border border-slate-200 bg-white font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-all cursor-pointer"
+          >
+            <option value="ALL">Semua Kategori</option>
+            <option value="Idea">Idea</option>
+            <option value="Prototype">Prototype</option>
+            <option value="Implementation">Implementation</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Table Container -->
+      <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200/80 overflow-hidden">
+        
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-sm">
+            
+            <!-- Table Header -->
+            <thead>
+              <tr class="bg-slate-900 text-white font-bold text-xs uppercase tracking-wider border-b border-slate-800">
+                <th scope="col" class="py-4 px-4 sm:px-6 w-16 text-center">No</th>
+                <th scope="col" class="py-4 px-4 sm:px-6 min-w-[200px]">Judul Inovasi</th>
+                <th scope="col" class="py-4 px-4 sm:px-6 min-w-[140px]">Kategori</th>
+                <th scope="col" class="py-4 px-4 sm:px-6 min-w-[180px]">Ketua / Pengusul</th>
+                <th scope="col" class="py-4 px-4 sm:px-6 min-w-[180px]">Anggota Tim</th>
+                <th scope="col" class="py-4 px-4 sm:px-6 min-w-[160px]">Waktu Pengajuan</th>
+              </tr>
+            </thead>
+
+            <!-- Table Body -->
+            <tbody id="innovationTableBody" class="divide-y divide-slate-100 font-medium">
+              <!-- Baris data akan diisi oleh JavaScript -->
+            </tbody>
+
+          </table>
+        </div>
+
+        <!-- Table Loading State -->
+        <div id="tableLoadingState" class="p-8 space-y-4">
+          <div class="skeleton-loading h-10 rounded-xl w-full"></div>
+          <div class="skeleton-loading h-10 rounded-xl w-full"></div>
+          <div class="skeleton-loading h-10 rounded-xl w-full"></div>
+          <div class="skeleton-loading h-10 rounded-xl w-full"></div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="tableEmptyState" class="hidden py-16 px-4 text-center">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
+            <i data-feather="inbox" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-base font-bold text-slate-800">Belum Ada Data Inovasi</h3>
+          <p class="text-sm text-slate-500 mt-1 max-w-sm mx-auto">
+            Tidak ada inovasi yang sesuai dengan kriteria filter, atau belum ada yang mendaftar.
+          </p>
+          <button 
+            onclick="switchTab('form')"
+            class="mt-4 inline-flex items-center space-x-2 px-4 py-2 rounded-xl text-white bg-moklet hover:bg-moklet-700 text-sm font-semibold shadow-md shadow-moklet-600/20 transition-colors"
+          >
+            <i data-feather="plus" class="w-4 h-4"></i>
+            <span>Daftarkan Sekarang</span>
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-white border-t border-slate-200 mt-auto py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500 space-y-1">
+      <p class="font-semibold text-slate-700">
+        InnovFest 2026 &copy; SMK Telkom Malang
+      </p>
+      <p>
+        Dibangun dengan Google Apps Script, Tailwind CSS, &amp; Google Sheets Database.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    /**
+     * Konfigurasi URL Web App
+     * CATATAN: Jika halaman ini di-host langsung di Google Apps Script (melalui HtmlService),
+     * URL ini otomatis mengambil URL aplikasi atau menggunakan google.script.run secara native!
+     */
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfR1DcKmxQVrZJpsn2vZlkRuB7N790L5cN3LmxVCVQNBQSYBEohYQY4Y9xymj0kvKG/exec";
+
+    // State Data Inovasi
+    let allInnovations = [];
+    let isSubmitting = false;
+
+    // Inisialisasi ikon Feather
+    document.addEventListener('DOMContentLoaded', () => {
+      feather.replace();
+    });
+
+    /**
+     * Navigasi Tab SPA (Isi Form <-> Dashboard)
+     */
+    function switchTab(tabName) {
+      const viewForm = document.getElementById('viewForm');
+      const viewDashboard = document.getElementById('viewDashboard');
+      const tabBtnForm = document.getElementById('tabBtnForm');
+      const tabBtnDashboard = document.getElementById('tabBtnDashboard');
+
+      if (tabName === 'form') {
+        viewForm.classList.remove('hidden');
+        viewDashboard.classList.add('hidden');
+
+        // Style Aktif Tab Form
+        tabBtnForm.className = 'flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-white bg-moklet shadow-sm shadow-moklet-600/20';
+        tabBtnDashboard.className = 'flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900 hover:bg-white/60';
+      } else {
+        viewForm.classList.add('hidden');
+        viewDashboard.classList.remove('hidden');
+
+        // Style Aktif Tab Dashboard
+        tabBtnDashboard.className = 'flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-white bg-moklet shadow-sm shadow-moklet-600/20';
+        tabBtnForm.className = 'flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900 hover:bg-white/60';
+
+        // Ambil data jika beralih ke dashboard
+        fetchDashboardData();
+      }
+
+      feather.replace();
+    }
+
+    /**
+     * Handler Submit Form menggunakan Fetch API / google.script.run
+     */
+    async function handleFormSubmit(event) {
+      event.preventDefault();
+      if (isSubmitting) return;
+
+      const form = document.getElementById('innovationForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const btnSpinner = document.getElementById('btnSpinner');
+
+      // Ambil nilai input
+      const payload = {
+        namaLengkap: document.getElementById('namaLengkap').value.trim(),
+        anggota1: document.getElementById('anggota1').value.trim(),
+        anggota2: document.getElementById('anggota2').value.trim(),
+        judulIde: document.getElementById('judulIde').value.trim(),
+        kategoriInovasi: document.getElementById('kategoriInovasi').value
+      };
+
+      // Set status UI loading
+      isSubmitting = true;
+      submitBtn.disabled = true;
+      btnText.classList.add('hidden');
+      btnSpinner.classList.remove('hidden');
+      btnSpinner.classList.add('flex');
+
+      try {
+        let isSuccess = false;
+
+        // 1. Jika berjalan langsung di dalam Google Apps Script Web App
+        if (typeof google !== 'undefined' && google.script && google.script.run) {
+          const result = await new Promise((resolve, reject) => {
+            google.script.run
+              .withSuccessHandler(resolve)
+              .withFailureHandler(reject)
+              .submitInnovationDirect(payload);
+          });
+          if (result && result.status === 'success') {
+            isSuccess = true;
+          } else {
+            throw new Error((result && result.message) || 'Gagal menyimpan data.');
+          }
+        } else {
+          // 2. Jika dibuka dari file lokal (file://) atau hosting lain:
+          // Gunakan mode: 'no-cors' untuk membypass blokir CORS browser
+          await fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'text/plain;charset=utf-8'
+            },
+            body: JSON.stringify(payload)
+          });
+          isSuccess = true;
+        }
+
+        if (isSuccess) {
+          showAlert('success', 'Inovasi berhasil dikirim dan tersimpan di Google Sheets!');
+          form.reset();
+        }
+
+      } catch (err) {
+        console.error('Submit Error:', err);
+        showAlert('error', 'Gagal mengirim data: ' + err.message);
+      } finally {
+        isSubmitting = false;
+        submitBtn.disabled = false;
+        btnText.classList.remove('hidden');
+        btnSpinner.classList.add('hidden');
+        btnSpinner.classList.remove('flex');
+        feather.replace();
+      }
+    }
+
+    /**
+     * Menampilkan Notifikasi Alert (Sukses / Gagal)
+     */
+    function showAlert(type, message) {
+      const alertEl = document.getElementById('formAlert');
+      const iconContainer = document.getElementById('alertIconContainer');
+      const msgEl = document.getElementById('alertMessage');
+
+      alertEl.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-800', 'border-emerald-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+
+      if (type === 'success') {
+        alertEl.classList.add('bg-emerald-50', 'text-emerald-800', 'border-emerald-200');
+        iconContainer.innerHTML = '<i data-feather="check-circle" class="w-5 h-5 text-emerald-600"></i>';
+      } else {
+        alertEl.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+        iconContainer.innerHTML = '<i data-feather="alert-triangle" class="w-5 h-5 text-red-600"></i>';
+      }
+
+      msgEl.innerText = message;
+      feather.replace();
+
+      // Auto-scroll ke alert
+      alertEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function dismissAlert() {
+      document.getElementById('formAlert').classList.add('hidden');
+    }
+
+    /**
+     * Mengambil Data untuk Dashboard (Fetch API / google.script.run)
+     */
+    async function fetchDashboardData() {
+      const loadingState = document.getElementById('tableLoadingState');
+      const emptyState = document.getElementById('tableEmptyState');
+      const tableBody = document.getElementById('innovationTableBody');
+      const refreshIcon = document.getElementById('refreshIcon');
+
+      refreshIcon.classList.add('animate-spin');
+      loadingState.classList.remove('hidden');
+      emptyState.classList.add('hidden');
+      tableBody.innerHTML = '';
+
+      try {
+        let result;
+
+        // 1. Jika berjalan langsung di dalam Google Apps Script Web App
+        if (typeof google !== 'undefined' && google.script && google.script.run) {
+          result = await new Promise((resolve, reject) => {
+            google.script.run
+              .withSuccessHandler(resolve)
+              .withFailureHandler(reject)
+              .getDashboardDataDirect();
+          });
+        } else {
+          // 2. Jika dibuka dari file lokal atau hosting luar:
+          // Coba fetch biasa, jika terhalang CORS gunakan JSONP
+          try {
+            const url = new URL(SCRIPT_URL);
+            url.searchParams.set('action', 'getData');
+            const response = await fetch(url.toString(), { method: 'GET' });
+            result = await response.json();
+          } catch (corsErr) {
+            // Fallback JSONP untuk bypass CORS
+            result = await new Promise((resolve, reject) => {
+              const callbackName = 'gasCallback_' + Date.now();
+              const script = document.createElement('script');
+              window[callbackName] = (data) => {
+                delete window[callbackName];
+                document.body.removeChild(script);
+                resolve(data);
+              };
+              script.src = `${SCRIPT_URL}?action=getData&callback=${callbackName}`;
+              script.onerror = () => {
+                delete window[callbackName];
+                document.body.removeChild(script);
+                reject(new Error('Gagal memuat data.'));
+              };
+              document.body.appendChild(script);
+            });
+          }
+        }
+
+        if (result && result.status === 'success') {
+          allInnovations = result.data || [];
+          updateStatistics(allInnovations);
+          renderTable(allInnovations);
+        } else {
+          renderTable([]);
+        }
+
+      } catch (err) {
+        console.error('Fetch Error:', err);
+        renderTable([]);
+      } finally {
+        loadingState.classList.add('hidden');
+        refreshIcon.classList.remove('animate-spin');
+        feather.replace();
+      }
+    }
+
+    /**
+     * Memperbarui Statistik KPI Card
+     */
+    function updateStatistics(data) {
+      document.getElementById('totalBadge').innerText = `${data.length} Data`;
+      
+      const ideaCount = data.filter(d => (d.kategoriInovasi || '').toLowerCase() === 'idea').length;
+      const protoCount = data.filter(d => (d.kategoriInovasi || '').toLowerCase() === 'prototype').length;
+      const implCount = data.filter(d => (d.kategoriInovasi || '').toLowerCase() === 'implementation').length;
+
+      document.getElementById('statIdeaCount').innerText = ideaCount;
+      document.getElementById('statProtoCount').innerText = protoCount;
+      document.getElementById('statImplCount').innerText = implCount;
+    }
+
+    /**
+     * Filter & Pencarian Client-Side
+     */
+    function handleFilterChange() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+      const selectedCat = document.getElementById('categoryFilter').value;
+
+      const filtered = allInnovations.filter(item => {
+        const matchesCategory = selectedCat === 'ALL' || (item.kategoriInovasi || '').toLowerCase() === selectedCat.toLowerCase();
+        const matchesSearch = 
+          (item.judulIde || '').toLowerCase().includes(searchTerm) ||
+          (item.namaLengkap || '').toLowerCase().includes(searchTerm) ||
+          (item.anggota1 || '').toLowerCase().includes(searchTerm) ||
+          (item.anggota2 || '').toLowerCase().includes(searchTerm);
+
+        return matchesCategory && matchesSearch;
+      });
+
+      renderTable(filtered);
+    }
+
+    /**
+     * Merender Baris Tabel Data Inovasi
+     */
+    function renderTable(data) {
+      const tableBody = document.getElementById('innovationTableBody');
+      const emptyState = document.getElementById('tableEmptyState');
+
+      tableBody.innerHTML = '';
+
+      if (!data || data.length === 0) {
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+
+      data.forEach((row, index) => {
+        const tr = document.createElement('tr');
+        // Zebra-striping & hover transition
+        tr.className = 'odd:bg-white even:bg-slate-50/70 hover:bg-moklet-50/60 transition-colors duration-150';
+
+        // Badge Kategori Styling
+        let badgeClass = 'bg-slate-100 text-slate-700 border-slate-200';
+        let badgeIcon = 'tag';
+        const cat = (row.kategoriInovasi || '').toLowerCase();
+
+        if (cat === 'idea') {
+          badgeClass = 'bg-amber-50 text-amber-700 border-amber-200';
+          badgeIcon = 'lightbulb';
+        } else if (cat === 'prototype') {
+          badgeClass = 'bg-indigo-50 text-indigo-700 border-indigo-200';
+          badgeIcon = 'tool';
+        } else if (cat === 'implementation') {
+          badgeClass = 'bg-emerald-50 text-emerald-700 border-emerald-200';
+          badgeIcon = 'check-circle';
+        }
+
+        // Format Tim
+        let anggotaList = [];
+        if (row.anggota1 && row.anggota1 !== '-') anggotaList.push(escapeHtml(row.anggota1));
+        if (row.anggota2 && row.anggota2 !== '-') anggotaList.push(escapeHtml(row.anggota2));
+        const anggotaText = anggotaList.length > 0 
+          ? anggotaList.join(', ') 
+          : '<span class="text-slate-400 italic">Individu</span>';
+
+        tr.innerHTML = `
+          <td class="py-4 px-4 sm:px-6 text-center text-slate-500 font-semibold text-xs">
+            ${index + 1}
+          </td>
+          <td class="py-4 px-4 sm:px-6 text-slate-900 font-bold">
+            ${escapeHtml(row.judulIde)}
+          </td>
+          <td class="py-4 px-4 sm:px-6">
+            <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-bold border ${badgeClass}">
+              <i data-feather="${badgeIcon}" class="w-3 h-3"></i>
+              <span>${escapeHtml(row.kategoriInovasi)}</span>
+            </span>
+          </td>
+          <td class="py-4 px-4 sm:px-6 text-slate-800">
+            <div class="font-semibold">${escapeHtml(row.namaLengkap)}</div>
+          </td>
+          <td class="py-4 px-4 sm:px-6 text-slate-600 text-xs">
+            ${anggotaText}
+          </td>
+          <td class="py-4 px-4 sm:px-6 text-slate-500 text-xs whitespace-nowrap">
+            ${escapeHtml(row.timestamp)}
+          </td>
+        `;
+
+        tableBody.appendChild(tr);
+      });
+
+      feather.replace();
+    }
+
+    /**
+     * Sanitasi string untuk mencegah XSS
+     */
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+  </script>
+</body>
+</html>
