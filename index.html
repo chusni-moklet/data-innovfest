@@ -269,6 +269,32 @@
             </div>
           </div>
 
+          <!-- Field: Status (Wajib) -->
+          <div>
+            <label for="status" class="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
+              Status <span class="text-moklet">*</span>
+            </label>
+            <div class="relative rounded-xl shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <i data-feather="bookmark" class="w-4 h-4"></i>
+              </div>
+              <select 
+                id="status" 
+                name="status" 
+                required 
+                class="block w-full pl-10 pr-10 py-2.5 sm:py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors appearance-none cursor-pointer"
+              >
+                <option value="" disabled selected>-- Pilih Status --</option>
+                <option value="Masih Ide">💡 Masih Ide</option>
+                <option value="Penulisan Dokumen">📝 Penulisan Dokumen</option>
+                <option value="Terdaftar Xgracias">✅ Terdaftar Xgracias</option>
+              </select>
+              <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400">
+                <i data-feather="chevron-down" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+
           <!-- Submit Button -->
           <div class="pt-3 sm:pt-4">
             <button 
@@ -367,7 +393,7 @@
       </div>
 
       <!-- Filters & Search Toolbar -->
-      <div class="bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 shadow-sm mb-5 sm:mb-6 flex flex-col sm:flex-row gap-2.5 sm:gap-4 justify-between items-stretch sm:items-center">
+      <div class="bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 shadow-sm mb-5 sm:mb-6 flex flex-col lg:flex-row gap-2.5 sm:gap-4 justify-between items-stretch lg:items-center">
         <!-- Live Search -->
         <div class="relative flex-grow">
           <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -377,24 +403,40 @@
             type="text" 
             id="searchInput" 
             oninput="handleFilterChange()"
-            placeholder="Cari judul, ketua, atau anggota..." 
+            placeholder="Cari judul, ketua, anggota, atau status..." 
             class="block w-full pl-10 pr-4 py-2 text-base sm:text-sm rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-all"
           >
         </div>
 
-        <!-- Category Filter -->
-        <div class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
-          <label for="categoryFilter" class="text-[11px] sm:text-xs font-bold text-slate-600 uppercase tracking-wider whitespace-nowrap">Filter:</label>
-          <select 
-            id="categoryFilter" 
-            onchange="handleFilterChange()"
-            class="w-full sm:w-auto py-2 pl-3 pr-8 text-base sm:text-sm rounded-xl border border-slate-200 bg-white font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-all cursor-pointer"
-          >
-            <option value="ALL">Semua Kategori</option>
-            <option value="Idea">💡 Idea</option>
-            <option value="Prototype">🛠️ Prototype</option>
-            <option value="Implementation">🚀 Implementation</option>
-          </select>
+        <!-- Category & Status Filters -->
+        <div class="flex flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-3 flex-shrink-0">
+          <div class="flex items-center space-x-1.5 flex-1 sm:flex-initial">
+            <label for="categoryFilter" class="text-[11px] sm:text-xs font-bold text-slate-600 uppercase tracking-wider whitespace-nowrap">Kategori:</label>
+            <select 
+              id="categoryFilter" 
+              onchange="handleFilterChange()"
+              class="w-full sm:w-auto py-2 pl-3 pr-8 text-base sm:text-sm rounded-xl border border-slate-200 bg-white font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-all cursor-pointer"
+            >
+              <option value="ALL">Semua Kategori</option>
+              <option value="Idea">💡 Idea</option>
+              <option value="Prototype">🛠️ Prototype</option>
+              <option value="Implementation">🚀 Implementation</option>
+            </select>
+          </div>
+
+          <div class="flex items-center space-x-1.5 flex-1 sm:flex-initial">
+            <label for="statusFilter" class="text-[11px] sm:text-xs font-bold text-slate-600 uppercase tracking-wider whitespace-nowrap">Status:</label>
+            <select 
+              id="statusFilter" 
+              onchange="handleFilterChange()"
+              class="w-full sm:w-auto py-2 pl-3 pr-8 text-base sm:text-sm rounded-xl border border-slate-200 bg-white font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-all cursor-pointer"
+            >
+              <option value="ALL">Semua Status</option>
+              <option value="Masih Ide">💡 Masih Ide</option>
+              <option value="Penulisan Dokumen">📝 Penulisan Dokumen</option>
+              <option value="Terdaftar Xgracias">✅ Terdaftar Xgracias</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -467,7 +509,7 @@
         InnovFest 2026 &copy; SMK Telkom Malang
       </p>
       <p>
-        Dibangun dengan Google Apps Script, Tailwind CSS, &amp; Google Sheets Database.
+        Tim Laboratorium dan Inovasi
       </p>
     </div>
   </footer>
@@ -540,7 +582,8 @@
         anggota1: document.getElementById('anggota1').value.trim(),
         anggota2: document.getElementById('anggota2').value.trim(),
         judulIde: document.getElementById('judulIde').value.trim(),
-        kategoriInovasi: document.getElementById('kategoriInovasi').value
+        kategoriInovasi: document.getElementById('kategoriInovasi').value,
+        status: document.getElementById('status').value
       };
 
       // Set status UI loading
@@ -722,9 +765,11 @@
     function handleFilterChange() {
       const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
       const selectedCat = document.getElementById('categoryFilter').value;
+      const selectedStatus = document.getElementById('statusFilter') ? document.getElementById('statusFilter').value : 'ALL';
 
       const filtered = allInnovations.filter(item => {
         const matchesCategory = selectedCat === 'ALL' || (item.kategoriInovasi || '').toLowerCase() === selectedCat.toLowerCase();
+        const matchesStatus = selectedStatus === 'ALL' || (item.status || '').toLowerCase() === selectedStatus.toLowerCase();
         const matchesSearch = 
           (item.judulIde || '').toLowerCase().includes(searchTerm) ||
           (item.namaLengkap || '').toLowerCase().includes(searchTerm) ||
@@ -732,7 +777,7 @@
           (item.anggota2 || '').toLowerCase().includes(searchTerm) ||
           (item.status || '').toLowerCase().includes(searchTerm);
 
-        return matchesCategory && matchesSearch;
+        return matchesCategory && matchesStatus && matchesSearch;
       });
 
       renderTable(filtered);
@@ -773,21 +818,25 @@
           badgeIcon = 'check-circle';
         }
 
-        // Badge Status Styling (status diisi dan hanya diubah dari Spreadsheet)
-        const st = (row.status || 'Menunggu Review').toLowerCase();
+        // Badge Status Styling (Masih Ide, Penulisan Dokumen, Terdaftar Xgracias)
+        const rawStatus = (row.status || 'Masih Ide').trim();
+        const st = rawStatus.toLowerCase();
         let statusBadgeClass = 'bg-amber-50 text-amber-700 border-amber-200';
-        let statusIcon = 'clock';
+        let statusIcon = 'lightbulb';
 
-        if (st.includes('setuju') || st.includes('lolos') || st.includes('terima') || st.includes('approved')) {
+        if (st.includes('terdaftar') || st.includes('xgracias') || st.includes('setuju') || st.includes('lolos') || st.includes('terima') || st.includes('approved')) {
           statusBadgeClass = 'bg-emerald-50 text-emerald-700 border-emerald-200';
           statusIcon = 'check-circle';
-        } else if (st.includes('nilai') || st.includes('proses') || (st.includes('review') && !st.includes('menunggu')) || st.includes('tinjau')) {
-          statusBadgeClass = 'bg-blue-50 text-blue-700 border-blue-200';
-          statusIcon = 'activity';
+        } else if (st.includes('dokumen') || st.includes('penulisan') || st.includes('proses') || st.includes('tinjau')) {
+          statusBadgeClass = 'bg-sky-50 text-sky-700 border-sky-200';
+          statusIcon = 'file-text';
+        } else if (st.includes('ide')) {
+          statusBadgeClass = 'bg-amber-50 text-amber-700 border-amber-200';
+          statusIcon = 'lightbulb';
         } else if (st.includes('tolak') || st.includes('gugur') || st.includes('reject')) {
           statusBadgeClass = 'bg-rose-50 text-rose-700 border-rose-200';
           statusIcon = 'x-circle';
-        } else if (!st.includes('tunggu') && !st.includes('pending')) {
+        } else {
           statusBadgeClass = 'bg-slate-100 text-slate-700 border-slate-200';
           statusIcon = 'info';
         }

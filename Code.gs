@@ -141,13 +141,14 @@ function doPost(e) {
     var namaLengkap = (data.namaLengkap || "").toString().trim();
     var judulIde = (data.judulIde || "").toString().trim();
     var kategoriInovasi = (data.kategoriInovasi || "").toString().trim();
+    var status = (data.status || "Masih Ide").toString().trim();
     var anggota1 = (data.anggota1 || "").toString().trim();
     var anggota2 = (data.anggota2 || "").toString().trim();
 
-    if (!namaLengkap || !judulIde || !kategoriInovasi) {
+    if (!namaLengkap || !judulIde || !kategoriInovasi || !status) {
       return createJsonResponse({
         status: "error",
-        message: "Nama Lengkap, Judul Ide, dan Kategori Inovasi wajib diisi!"
+        message: "Nama Lengkap, Judul Ide, Kategori Inovasi, dan Status wajib diisi!"
       });
     }
 
@@ -155,7 +156,6 @@ function doPost(e) {
     var timestamp = Utilities.formatDate(new Date(), "Asia/Jakarta", "yyyy-MM-dd HH:mm:ss");
 
     // Baris baru yang akan ditambahkan
-    // Status default: "Menunggu Review" (hanya diubah dari Spreadsheet)
     var newRow = [
       timestamp,
       namaLengkap,
@@ -163,7 +163,7 @@ function doPost(e) {
       anggota2 || "-",
       judulIde,
       kategoriInovasi,
-      "Menunggu Review"
+      status
     ];
 
     sheet.appendRow(newRow);
@@ -176,7 +176,7 @@ function doPost(e) {
         namaLengkap: namaLengkap,
         judulIde: judulIde,
         kategoriInovasi: kategoriInovasi,
-        status: "Menunggu Review"
+        status: status
       }
     });
 
@@ -226,7 +226,7 @@ function handleGetData() {
         anggota2: row[3] || "-",
         judulIde: row[4] || "-",
         kategoriInovasi: row[5] || "-",
-        status: (row[6] !== undefined && row[6] !== null && row[6].toString().trim() !== "") ? row[6].toString().trim() : "Menunggu Review"
+        status: (row[6] !== undefined && row[6] !== null && row[6].toString().trim() !== "") ? row[6].toString().trim() : "Masih Ide"
       });
     }
 
