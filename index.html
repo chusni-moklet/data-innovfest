@@ -77,48 +77,48 @@
 
   <!-- ==================== HEADER & NAVBAR ==================== -->
   <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
+    <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
         
         <!-- Logo & Brand Title -->
-        <div class="flex items-center space-x-3.5">
+        <div class="flex items-center space-x-2.5 sm:space-x-3.5 min-w-0">
           <!-- Logo Resmi SMK Telkom Malang -->
-          <div class="w-12 h-12 rounded-xl bg-white p-1 border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 overflow-hidden hover:scale-105 transition-transform duration-200">
+          <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-white p-1 border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 overflow-hidden hover:scale-105 transition-transform duration-200">
             <img src="logo.png" alt="Logo SMK Telkom Malang" class="w-full h-full object-contain">
           </div>
-          <div>
-            <div class="flex items-center space-x-2">
-              <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-slate-900">
+          <div class="min-w-0">
+            <div class="flex items-center space-x-1.5 sm:space-x-2">
+              <span class="font-extrabold text-base sm:text-2xl tracking-tight text-slate-900 leading-tight">
                 INNOV<span class="text-moklet">FEST</span>
               </span>
-              <span class="bg-moklet-50 text-moklet border border-moklet-200 text-xs font-bold px-2 py-0.5 rounded-full">
+              <span class="bg-moklet-50 text-moklet border border-moklet-200 text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.5 rounded-full leading-none">
                 2026
               </span>
             </div>
-            <p class="text-xs text-slate-500 font-medium">
-              SMK Telkom Malang &bull; The Real Informatics School
+            <p class="text-[10px] sm:text-xs text-slate-500 font-medium truncate leading-tight mt-0.5">
+              SMK Telkom Malang <span class="hidden md:inline">&bull; The Real Informatics School</span>
             </p>
           </div>
         </div>
 
         <!-- Navigation Tabs (Desktop & Mobile) -->
-        <nav class="flex items-center bg-slate-100 p-1.5 rounded-xl border border-slate-200/80">
+        <nav class="flex items-center bg-slate-100 p-1 sm:p-1.5 rounded-xl border border-slate-200/80 flex-shrink-0">
           <button 
             id="tabBtnForm" 
             onclick="switchTab('form')"
-            class="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-white bg-moklet shadow-sm shadow-moklet-600/20"
+            class="flex items-center space-x-1.5 sm:space-x-2 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 text-white bg-moklet shadow-sm shadow-moklet-600/20"
           >
-            <i data-feather="edit-3" class="w-4 h-4"></i>
-            <span>Isi Form</span>
+            <i data-feather="edit-3" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+            <span>Form<span class="hidden sm:inline"> Inovasi</span></span>
           </button>
           
           <button 
             id="tabBtnDashboard" 
             onclick="switchTab('dashboard')"
-            class="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900 hover:bg-white/60"
+            class="flex items-center space-x-1.5 sm:space-x-2 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900 hover:bg-white/60"
           >
-            <i data-feather="grid" class="w-4 h-4"></i>
-            <span>Dashboard Inovasi</span>
+            <i data-feather="grid" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+            <span>Dashboard<span class="hidden sm:inline"> Inovasi</span></span>
           </button>
         </nav>
 
@@ -127,7 +127,7 @@
   </header>
 
   <!-- ==================== MAIN CONTENT CONTAINER ==================== -->
-  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+  <main class="flex-grow max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 py-5 sm:py-8">
 
     <!-- ======================================================== -->
     <!-- VIEW 1: FORMULIR INPUT INOVASI                           -->
@@ -135,38 +135,38 @@
     <section id="viewForm" class="block max-w-2xl mx-auto transition-all duration-300">
       
       <!-- Intro Card Banner -->
-      <div class="mb-8 text-center">
-        <div class="inline-flex items-center justify-center p-2 bg-moklet-50 text-moklet rounded-full mb-3 border border-moklet-100">
-          <i data-feather="sparkles" class="w-5 h-5"></i>
+      <div class="mb-5 sm:mb-8 text-center">
+        <div class="inline-flex items-center justify-center p-2 bg-moklet-50 text-moklet rounded-full mb-2.5 sm:mb-3 border border-moklet-100">
+          <i data-feather="sparkles" class="w-4 h-4 sm:w-5 sm:h-5"></i>
         </div>
-        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+        <h1 class="text-xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
           Formulir Pengajuan Inovasi
         </h1>
-        <p class="text-sm sm:text-base text-slate-600 mt-2 max-w-md mx-auto">
-          Laporkan karya dan gagasan inovatif terbaik Anda untuk SMK Telkom Malang <strong >Juara Umum</strong> pada ajang bergengsi <strong>InnovFest 2026</strong>.
+        <p class="text-xs sm:text-base text-slate-600 mt-1.5 sm:mt-2 max-w-md mx-auto leading-relaxed">
+          Laporkan karya dan gagasan inovatif terbaik Anda untuk SMK Telkom Malang <strong>Juara Umum</strong> pada ajang bergengsi <strong>InnovFest 2026</strong>.
         </p>
       </div>
 
       <!-- Form Card -->
-      <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-200/80 p-6 sm:p-10 relative overflow-hidden">
+      <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-200/80 p-4 sm:p-8 md:p-10 relative overflow-hidden">
         
         <!-- Top Moklet Red Accent Line -->
         <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-moklet to-red-400"></div>
 
         <!-- Alert Notification (Sukses / Error) -->
-        <div id="formAlert" class="hidden mb-6 p-4 rounded-xl text-sm font-medium border flex items-start space-x-3 transition-all">
+        <div id="formAlert" class="hidden mb-5 sm:mb-6 p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-medium border flex items-start space-x-3 transition-all">
           <div id="alertIconContainer" class="flex-shrink-0 mt-0.5"></div>
           <div class="flex-grow" id="alertMessage"></div>
-          <button onclick="dismissAlert()" class="text-slate-400 hover:text-slate-600">
+          <button onclick="dismissAlert()" class="text-slate-400 hover:text-slate-600 p-0.5">
             <i data-feather="x" class="w-4 h-4"></i>
           </button>
         </div>
 
-        <form id="innovationForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+        <form id="innovationForm" onsubmit="handleFormSubmit(event)" class="space-y-4 sm:space-y-5">
           
           <!-- Field: Nama Lengkap (Wajib) -->
           <div>
-            <label for="namaLengkap" class="block text-sm font-bold text-slate-800 mb-1.5">
+            <label for="namaLengkap" class="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
               Nama Lengkap Ketua / Pengusul <span class="text-moklet">*</span>
             </label>
             <div class="relative rounded-xl shadow-sm">
@@ -179,16 +179,16 @@
                 name="namaLengkap" 
                 required 
                 placeholder="Contoh: Muhammad Chusni Moklet"
-                class="block w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors"
+                class="block w-full pl-10 pr-4 py-2.5 sm:py-2.5 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors"
               >
             </div>
           </div>
 
           <!-- Field: Anggota 1 & Anggota 2 (Opsional) -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
             <div>
-              <label for="anggota1" class="block text-sm font-semibold text-slate-700 mb-1.5">
-                Anggota 1 <span class="text-xs text-slate-400 font-normal">(Opsional)</span>
+              <label for="anggota1" class="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">
+                Anggota 1 <span class="text-[11px] sm:text-xs text-slate-400 font-normal">(Opsional)</span>
               </label>
               <div class="relative rounded-xl shadow-sm">
                 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -199,14 +199,14 @@
                   id="anggota1" 
                   name="anggota1" 
                   placeholder="Nama anggota 1"
-                  class="block w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors"
+                  class="block w-full pl-10 pr-4 py-2.5 sm:py-2.5 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors"
                 >
               </div>
             </div>
 
             <div>
-              <label for="anggota2" class="block text-sm font-semibold text-slate-700 mb-1.5">
-                Anggota 2 <span class="text-xs text-slate-400 font-normal">(Opsional)</span>
+              <label for="anggota2" class="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5">
+                Anggota 2 <span class="text-[11px] sm:text-xs text-slate-400 font-normal">(Opsional)</span>
               </label>
               <div class="relative rounded-xl shadow-sm">
                 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -217,7 +217,7 @@
                   id="anggota2" 
                   name="anggota2" 
                   placeholder="Nama anggota 2"
-                  class="block w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors"
+                  class="block w-full pl-10 pr-4 py-2.5 sm:py-2.5 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors"
                 >
               </div>
             </div>
@@ -225,7 +225,7 @@
 
           <!-- Field: Judul Ide (Wajib) -->
           <div>
-            <label for="judulIde" class="block text-sm font-bold text-slate-800 mb-1.5">
+            <label for="judulIde" class="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
               Judul Ide Inovasi <span class="text-moklet">*</span>
             </label>
             <div class="relative rounded-xl shadow-sm">
@@ -237,15 +237,15 @@
                 id="judulIde" 
                 name="judulIde" 
                 required 
-                placeholder="Contoh: Sistem Presensi Siswa Berbasis AI & Face Recognition"
-                class="block w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors"
+                placeholder="Contoh: Sistem Presensi Siswa Berbasis AI"
+                class="block w-full pl-10 pr-4 py-2.5 sm:py-2.5 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors"
               >
             </div>
           </div>
 
           <!-- Field: Kategori Inovasi (Wajib) -->
           <div>
-            <label for="kategoriInovasi" class="block text-sm font-bold text-slate-800 mb-1.5">
+            <label for="kategoriInovasi" class="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
               Kategori Inovasi <span class="text-moklet">*</span>
             </label>
             <div class="relative rounded-xl shadow-sm">
@@ -256,7 +256,7 @@
                 id="kategoriInovasi" 
                 name="kategoriInovasi" 
                 required 
-                class="block w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors appearance-none cursor-pointer"
+                class="block w-full pl-10 pr-10 py-2.5 sm:py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-colors appearance-none cursor-pointer"
               >
                 <option value="" disabled selected>-- Pilih Kategori Inovasi --</option>
                 <option value="Idea">💡 Idea (Gagasan Konseptual)</option>
@@ -270,11 +270,11 @@
           </div>
 
           <!-- Submit Button -->
-          <div class="pt-4">
+          <div class="pt-3 sm:pt-4">
             <button 
               type="submit" 
               id="submitBtn"
-              class="w-full flex items-center justify-center space-x-2 py-3.5 px-6 rounded-xl text-white bg-moklet hover:bg-moklet-700 active:scale-[0.99] font-bold text-base shadow-lg shadow-moklet-600/30 transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+              class="w-full flex items-center justify-center space-x-2 py-3 sm:py-3.5 px-6 rounded-xl text-white bg-moklet hover:bg-moklet-700 active:scale-[0.99] font-bold text-sm sm:text-base shadow-lg shadow-moklet-600/30 transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <span id="btnText" class="flex items-center space-x-2">
                 <i data-feather="send" class="w-4 h-4"></i>
@@ -303,72 +303,73 @@
     <section id="viewDashboard" class="hidden transition-all duration-300">
       
       <!-- Top Title & Refresh Action -->
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+      <div class="flex items-center justify-between gap-3 mb-5 sm:mb-6">
         <div>
-          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2.5">
-            <span>Dashboard Inovasi</span>
-            <span id="totalBadge" class="bg-moklet-50 text-moklet border border-moklet-200 text-xs font-bold px-2.5 py-1 rounded-full">
+          <h1 class="text-xl sm:text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
+            <span>Dashboard</span>
+            <span class="hidden sm:inline">Inovasi</span>
+            <span id="totalBadge" class="bg-moklet-50 text-moklet border border-moklet-200 text-[11px] sm:text-xs font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full">
               0 Data
             </span>
           </h1>
-          <p class="text-sm text-slate-500 mt-1">
-            Daftar karya dan ide inovasi yang telah didaftarkan Xgracias.
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5 hidden sm:block">
+            Daftar karya dan ide inovasi yang telah didaftarkan.
           </p>
         </div>
 
         <button 
           onclick="fetchDashboardData()" 
           id="refreshBtn"
-          class="inline-flex items-center justify-center space-x-2 px-4 py-2.5 bg-white border border-slate-300 hover:border-moklet hover:text-moklet text-slate-700 font-semibold text-sm rounded-xl shadow-sm transition-all hover:shadow cursor-pointer"
+          class="inline-flex items-center justify-center space-x-1.5 sm:space-x-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-white border border-slate-300 hover:border-moklet hover:text-moklet text-slate-700 font-semibold text-xs sm:text-sm rounded-xl shadow-sm transition-all hover:shadow active:scale-95 cursor-pointer flex-shrink-0"
           title="Segarkan Data"
         >
-          <i data-feather="refresh-cw" id="refreshIcon" class="w-4 h-4"></i>
-          <span>Segarkan Data</span>
+          <i data-feather="refresh-cw" id="refreshIcon" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+          <span>Segarkan<span class="hidden sm:inline"> Data</span></span>
         </button>
       </div>
 
-      <!-- Quick KPI Stats Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+      <!-- Quick KPI Stats Cards: 3 Kolom Kompak di Mobile & Desktop -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-4 mb-5 sm:mb-8">
         
         <!-- Stat: Idea -->
-        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex items-center space-x-4">
-          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100 flex-shrink-0">
-            <i data-feather="lightbulb" class="w-6 h-6"></i>
+        <div class="bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-5 border border-slate-200/80 shadow-sm flex flex-col sm:flex-row items-center sm:space-x-4 text-center sm:text-left">
+          <div class="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100 flex-shrink-0 mb-1 sm:mb-0">
+            <i data-feather="lightbulb" class="w-4 h-4 sm:w-6 sm:h-6"></i>
           </div>
-          <div>
-            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Kategori Idea</p>
-            <p id="statIdeaCount" class="text-2xl font-extrabold text-slate-900">0</p>
+          <div class="min-w-0">
+            <p class="text-[10px] sm:text-xs font-bold sm:font-semibold text-slate-500 uppercase tracking-wider truncate">Idea</p>
+            <p id="statIdeaCount" class="text-lg sm:text-2xl font-extrabold text-slate-900 leading-tight">0</p>
           </div>
         </div>
 
         <!-- Stat: Prototype -->
-        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex items-center space-x-4">
-          <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100 flex-shrink-0">
-            <i data-feather="tool" class="w-6 h-6"></i>
+        <div class="bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-5 border border-slate-200/80 shadow-sm flex flex-col sm:flex-row items-center sm:space-x-4 text-center sm:text-left">
+          <div class="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100 flex-shrink-0 mb-1 sm:mb-0">
+            <i data-feather="tool" class="w-4 h-4 sm:w-6 sm:h-6"></i>
           </div>
-          <div>
-            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Kategori Prototype</p>
-            <p id="statProtoCount" class="text-2xl font-extrabold text-slate-900">0</p>
+          <div class="min-w-0">
+            <p class="text-[10px] sm:text-xs font-bold sm:font-semibold text-slate-500 uppercase tracking-wider truncate">Prototype</p>
+            <p id="statProtoCount" class="text-lg sm:text-2xl font-extrabold text-slate-900 leading-tight">0</p>
           </div>
         </div>
 
         <!-- Stat: Implementation -->
-        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex items-center space-x-4">
-          <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 flex-shrink-0">
-            <i data-feather="check-circle" class="w-6 h-6"></i>
+        <div class="bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-5 border border-slate-200/80 shadow-sm flex flex-col sm:flex-row items-center sm:space-x-4 text-center sm:text-left">
+          <div class="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 flex-shrink-0 mb-1 sm:mb-0">
+            <i data-feather="check-circle" class="w-4 h-4 sm:w-6 sm:h-6"></i>
           </div>
-          <div>
-            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Kategori Implementation</p>
-            <p id="statImplCount" class="text-2xl font-extrabold text-slate-900">0</p>
+          <div class="min-w-0">
+            <p class="text-[10px] sm:text-xs font-bold sm:font-semibold text-slate-500 uppercase tracking-wider truncate">Implement</p>
+            <p id="statImplCount" class="text-lg sm:text-2xl font-extrabold text-slate-900 leading-tight">0</p>
           </div>
         </div>
 
       </div>
 
       <!-- Filters & Search Toolbar -->
-      <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm mb-6 flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
+      <div class="bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 shadow-sm mb-5 sm:mb-6 flex flex-col sm:flex-row gap-2.5 sm:gap-4 justify-between items-stretch sm:items-center">
         <!-- Live Search -->
-        <div class="relative flex-grow max-w-md">
+        <div class="relative flex-grow">
           <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
             <i data-feather="search" class="w-4 h-4"></i>
           </div>
@@ -376,33 +377,33 @@
             type="text" 
             id="searchInput" 
             oninput="handleFilterChange()"
-            placeholder="Cari judul, nama ketua, atau anggota..." 
-            class="block w-full pl-10 pr-4 py-2 text-sm rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-all"
+            placeholder="Cari judul, ketua, atau anggota..." 
+            class="block w-full pl-10 pr-4 py-2 text-base sm:text-sm rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-all"
           >
         </div>
 
         <!-- Category Filter -->
-        <div class="flex items-center space-x-3">
-          <label for="categoryFilter" class="text-xs font-bold text-slate-600 uppercase tracking-wider whitespace-nowrap">Filter Kategori:</label>
+        <div class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+          <label for="categoryFilter" class="text-[11px] sm:text-xs font-bold text-slate-600 uppercase tracking-wider whitespace-nowrap">Filter:</label>
           <select 
             id="categoryFilter" 
             onchange="handleFilterChange()"
-            class="py-2 pl-3 pr-8 text-sm rounded-xl border border-slate-200 bg-white font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-all cursor-pointer"
+            class="w-full sm:w-auto py-2 pl-3 pr-8 text-base sm:text-sm rounded-xl border border-slate-200 bg-white font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-moklet focus:border-moklet transition-all cursor-pointer"
           >
             <option value="ALL">Semua Kategori</option>
-            <option value="Idea">Idea</option>
-            <option value="Prototype">Prototype</option>
-            <option value="Implementation">Implementation</option>
+            <option value="Idea">💡 Idea</option>
+            <option value="Prototype">🛠️ Prototype</option>
+            <option value="Implementation">🚀 Implementation</option>
           </select>
         </div>
       </div>
 
-      <!-- Table Container -->
+      <!-- Data Inovasi Container -->
       <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200/80 overflow-hidden">
         
-        <div class="overflow-x-auto">
+        <!-- 1. Desktop Table View (md:block, hidden di mobile) -->
+        <div class="hidden md:block overflow-x-auto">
           <table class="w-full text-left border-collapse text-sm">
-            
             <!-- Table Header -->
             <thead>
               <tr class="bg-slate-900 text-white font-bold text-xs uppercase tracking-wider border-b border-slate-800">
@@ -419,30 +420,33 @@
             <tbody id="innovationTableBody" class="divide-y divide-slate-100 font-medium">
               <!-- Baris data akan diisi oleh JavaScript -->
             </tbody>
-
           </table>
         </div>
 
+        <!-- 2. Mobile Cards View (block di mobile, hidden di desktop) -->
+        <div id="innovationMobileCardsBody" class="block md:hidden p-3.5 space-y-3">
+          <!-- Kartu data mobile akan diisi oleh JavaScript -->
+        </div>
+
         <!-- Table Loading State -->
-        <div id="tableLoadingState" class="p-8 space-y-4">
-          <div class="skeleton-loading h-10 rounded-xl w-full"></div>
-          <div class="skeleton-loading h-10 rounded-xl w-full"></div>
-          <div class="skeleton-loading h-10 rounded-xl w-full"></div>
-          <div class="skeleton-loading h-10 rounded-xl w-full"></div>
+        <div id="tableLoadingState" class="p-4 sm:p-8 space-y-3 sm:space-y-4">
+          <div class="skeleton-loading h-16 sm:h-10 rounded-xl w-full"></div>
+          <div class="skeleton-loading h-16 sm:h-10 rounded-xl w-full"></div>
+          <div class="skeleton-loading h-16 sm:h-10 rounded-xl w-full"></div>
         </div>
 
         <!-- Empty State -->
-        <div id="tableEmptyState" class="hidden py-16 px-4 text-center">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
-            <i data-feather="inbox" class="w-8 h-8"></i>
+        <div id="tableEmptyState" class="hidden py-12 sm:py-16 px-4 text-center">
+          <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
+            <i data-feather="inbox" class="w-7 h-7 sm:w-8 sm:h-8"></i>
           </div>
-          <h3 class="text-base font-bold text-slate-800">Belum Ada Data Inovasi</h3>
-          <p class="text-sm text-slate-500 mt-1 max-w-sm mx-auto">
+          <h3 class="text-sm sm:text-base font-bold text-slate-800">Belum Ada Data Inovasi</h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1 max-w-sm mx-auto">
             Tidak ada inovasi yang sesuai dengan kriteria filter, atau belum ada yang mendaftar.
           </p>
           <button 
             onclick="switchTab('form')"
-            class="mt-4 inline-flex items-center space-x-2 px-4 py-2 rounded-xl text-white bg-moklet hover:bg-moklet-700 text-sm font-semibold shadow-md shadow-moklet-600/20 transition-colors"
+            class="mt-4 inline-flex items-center space-x-2 px-4 py-2 rounded-xl text-white bg-moklet hover:bg-moklet-700 text-xs sm:text-sm font-semibold shadow-md shadow-moklet-600/20 transition-colors cursor-pointer"
           >
             <i data-feather="plus" class="w-4 h-4"></i>
             <span>Daftarkan Sekarang</span>
@@ -494,20 +498,21 @@
       const tabBtnForm = document.getElementById('tabBtnForm');
       const tabBtnDashboard = document.getElementById('tabBtnDashboard');
 
+      const activeClass = 'flex items-center space-x-1.5 sm:space-x-2 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 text-white bg-moklet shadow-sm shadow-moklet-600/20';
+      const inactiveClass = 'flex items-center space-x-1.5 sm:space-x-2 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900 hover:bg-white/60';
+
       if (tabName === 'form') {
         viewForm.classList.remove('hidden');
         viewDashboard.classList.add('hidden');
 
-        // Style Aktif Tab Form
-        tabBtnForm.className = 'flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-white bg-moklet shadow-sm shadow-moklet-600/20';
-        tabBtnDashboard.className = 'flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900 hover:bg-white/60';
+        tabBtnForm.className = activeClass;
+        tabBtnDashboard.className = inactiveClass;
       } else {
         viewForm.classList.add('hidden');
         viewDashboard.classList.remove('hidden');
 
-        // Style Aktif Tab Dashboard
-        tabBtnDashboard.className = 'flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-white bg-moklet shadow-sm shadow-moklet-600/20';
-        tabBtnForm.className = 'flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900 hover:bg-white/60';
+        tabBtnDashboard.className = activeClass;
+        tabBtnForm.className = inactiveClass;
 
         // Ambil data jika beralih ke dashboard
         fetchDashboardData();
@@ -628,12 +633,14 @@
       const loadingState = document.getElementById('tableLoadingState');
       const emptyState = document.getElementById('tableEmptyState');
       const tableBody = document.getElementById('innovationTableBody');
+      const cardsBody = document.getElementById('innovationMobileCardsBody');
       const refreshIcon = document.getElementById('refreshIcon');
 
       refreshIcon.classList.add('animate-spin');
       loadingState.classList.remove('hidden');
       emptyState.classList.add('hidden');
       tableBody.innerHTML = '';
+      if (cardsBody) cardsBody.innerHTML = '';
 
       try {
         let result;
@@ -730,13 +737,15 @@
     }
 
     /**
-     * Merender Baris Tabel Data Inovasi
+     * Merender Baris Tabel Data Inovasi (Desktop & Mobile)
      */
     function renderTable(data) {
       const tableBody = document.getElementById('innovationTableBody');
+      const cardsBody = document.getElementById('innovationMobileCardsBody');
       const emptyState = document.getElementById('tableEmptyState');
 
       tableBody.innerHTML = '';
+      if (cardsBody) cardsBody.innerHTML = '';
 
       if (!data || data.length === 0) {
         emptyState.classList.remove('hidden');
@@ -746,10 +755,6 @@
       emptyState.classList.add('hidden');
 
       data.forEach((row, index) => {
-        const tr = document.createElement('tr');
-        // Zebra-striping & hover transition
-        tr.className = 'odd:bg-white even:bg-slate-50/70 hover:bg-moklet-50/60 transition-colors duration-150';
-
         // Badge Kategori Styling
         let badgeClass = 'bg-slate-100 text-slate-700 border-slate-200';
         let badgeIcon = 'tag';
@@ -774,6 +779,9 @@
           ? anggotaList.join(', ') 
           : '<span class="text-slate-400 italic">Individu</span>';
 
+        // 1. Baris Tabel Desktop
+        const tr = document.createElement('tr');
+        tr.className = 'odd:bg-white even:bg-slate-50/70 hover:bg-moklet-50/60 transition-colors duration-150';
         tr.innerHTML = `
           <td class="py-4 px-4 sm:px-6 text-center text-slate-500 font-semibold text-xs">
             ${index + 1}
@@ -797,8 +805,54 @@
             ${escapeHtml(row.timestamp)}
           </td>
         `;
-
         tableBody.appendChild(tr);
+
+        // 2. Kartu Mobile View
+        if (cardsBody) {
+          const card = document.createElement('div');
+          card.className = 'bg-white rounded-xl p-3.5 sm:p-4 border border-slate-200/90 shadow-sm space-y-2.5 hover:border-slate-300 transition-colors';
+          card.innerHTML = `
+            <div class="flex items-center justify-between gap-2">
+              <span class="inline-flex items-center space-x-1 px-2 py-0.5 rounded-full text-[11px] font-bold border ${badgeClass}">
+                <i data-feather="${badgeIcon}" class="w-3 h-3"></i>
+                <span>${escapeHtml(row.kategoriInovasi)}</span>
+              </span>
+              <span class="text-[10px] font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-md">
+                #${index + 1}
+              </span>
+            </div>
+
+            <h3 class="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+              ${escapeHtml(row.judulIde)}
+            </h3>
+
+            <div class="space-y-1.5 text-xs border-t border-slate-100 pt-2 text-slate-600">
+              <div class="flex items-center space-x-2">
+                <div class="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 flex-shrink-0">
+                  <i data-feather="user" class="w-2.5 h-2.5"></i>
+                </div>
+                <div class="font-semibold text-slate-800 truncate">${escapeHtml(row.namaLengkap)} <span class="text-[10px] font-normal text-slate-400">(Ketua)</span></div>
+              </div>
+
+              <div class="flex items-start space-x-2">
+                <div class="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 flex-shrink-0 mt-0.5">
+                  <i data-feather="users" class="w-2.5 h-2.5"></i>
+                </div>
+                <div class="text-slate-600 text-[11px] leading-tight">
+                  ${anggotaText}
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-2 text-slate-400 text-[10px] pt-0.5">
+                <div class="w-4 h-4 flex items-center justify-center flex-shrink-0">
+                  <i data-feather="clock" class="w-2.5 h-2.5"></i>
+                </div>
+                <span>${escapeHtml(row.timestamp)}</span>
+              </div>
+            </div>
+          `;
+          cardsBody.appendChild(card);
+        }
       });
 
       feather.replace();
