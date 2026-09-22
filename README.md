@@ -28,6 +28,7 @@ Script akan secara otomatis membuat sheet bernama **`Inovasi`** dan mengatur hea
 | **D** | `Anggota 2` | Teks, Opsional |
 | **E** | `Judul Ide` | Teks, Wajib diisi |
 | **F** | `Kategori Inovasi` | Dropdown: `Idea`, `Prototype`, `Implementation` |
+| **G** | `Status` | Status verifikasi/kurasi inovasi (Default: `Menunggu Review`). **Hanya diubah langsung oleh panitia melalui Google Spreadsheet!** |
 
 ---
 

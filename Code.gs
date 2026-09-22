@@ -36,7 +36,8 @@ function getOrCreateSheet() {
       "Anggota 1",
       "Anggota 2",
       "Judul Ide",
-      "Kategori Inovasi"
+      "Kategori Inovasi",
+      "Status"
     ];
     sheet.appendRow(headers);
     
@@ -51,6 +52,20 @@ function getOrCreateSheet() {
     // Auto-resize kolom
     for (var i = 1; i <= headers.length; i++) {
       sheet.autoResizeColumn(i);
+    }
+  } else {
+    // Jika sheet sudah ada tapi kolom ke-7 (Status) belum memiliki header
+    if (sheet.getLastColumn() >= 6) {
+      var headerVal = sheet.getRange(1, 7).getValue();
+      if (!headerVal || headerVal.toString().trim() === "") {
+        sheet.getRange(1, 7).setValue("Status");
+        var cell = sheet.getRange(1, 7);
+        cell.setBackground("#E21E26");
+        cell.setFontColor("#FFFFFF");
+        cell.setFontWeight("bold");
+        cell.setHorizontalAlignment("center");
+        sheet.autoResizeColumn(7);
+      }
     }
   }
   return sheet;
@@ -140,13 +155,15 @@ function doPost(e) {
     var timestamp = Utilities.formatDate(new Date(), "Asia/Jakarta", "yyyy-MM-dd HH:mm:ss");
 
     // Baris baru yang akan ditambahkan
+    // Status default: "Menunggu Review" (hanya diubah dari Spreadsheet)
     var newRow = [
       timestamp,
       namaLengkap,
       anggota1 || "-",
       anggota2 || "-",
       judulIde,
-      kategoriInovasi
+      kategoriInovasi,
+      "Menunggu Review"
     ];
 
     sheet.appendRow(newRow);
@@ -158,7 +175,8 @@ function doPost(e) {
         timestamp: timestamp,
         namaLengkap: namaLengkap,
         judulIde: judulIde,
-        kategoriInovasi: kategoriInovasi
+        kategoriInovasi: kategoriInovasi,
+        status: "Menunggu Review"
       }
     });
 
@@ -189,7 +207,7 @@ function handleGetData() {
       });
     }
 
-    var values = sheet.getRange(2, 1, lastRow - 1, 6).getValues();
+    var values = sheet.getRange(2, 1, lastRow - 1, 7).getValues();
     var result = [];
 
     // Looping dari baris terakhir ke pertama (data terbaru muncul paling atas)
@@ -207,7 +225,8 @@ function handleGetData() {
         anggota1: row[2] || "-",
         anggota2: row[3] || "-",
         judulIde: row[4] || "-",
-        kategoriInovasi: row[5] || "-"
+        kategoriInovasi: row[5] || "-",
+        status: (row[6] !== undefined && row[6] !== null && row[6].toString().trim() !== "") ? row[6].toString().trim() : "Menunggu Review"
       });
     }
 
